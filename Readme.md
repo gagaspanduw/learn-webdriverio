@@ -4,6 +4,7 @@ Require :
 * Node JS
 * NPM
 
+
 How to install :
 1. Create project folder
 2. npm init -y
@@ -24,6 +25,7 @@ How to install :
     global.assert = chai.assert
     global.should = chai.should
     global.expect = chai.expect
+    
     
 How to run :
 * npx wdio run wdio.conf.js (to run all test on specs folder)
