@@ -3,8 +3,7 @@ My WebDriverIO learn repository
 Require :
 * Node JS
 * NPM
-
-
+<br/>
 How to install :
 1. Create project folder
 2. npm init -y
@@ -26,7 +25,7 @@ How to install :
     global.should = chai.should
     global.expect = chai.expect
     
-    
+<br/>
 How to run :
 * npx wdio run wdio.conf.js (to run all test on specs folder)
 * npx wdio run wdio.conf.js -- --spec {filename} (to run single test file)
