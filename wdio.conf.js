@@ -208,7 +208,8 @@ exports.config = {
         const chai = require('chai')
         const chaiWebdriver = require('chai-webdriverio').default
 
-        chai.user(chaiWebdriver(browser))
+        chai.use(chaiWebdriver(browser))
+        
         global.assert = chai.assert
         global.should = chai.should
         global.expect = chai.expect
