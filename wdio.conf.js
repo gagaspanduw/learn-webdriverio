@@ -1,3 +1,11 @@
+const url = require('./urls.js')
+const ENV = process.env.ENV
+
+if(!ENV || !['qa', 'dev', 'staging'].includes(ENV)){
+    console.log('Please use the following format when running the test script: ENV=qa|dev|staging')
+    process.exit()
+}
+
 exports.config = {
     //
     // ====================
@@ -23,6 +31,12 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
+
+    suites: {
+        actions: [
+            './test/specs/actions/*.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -94,7 +108,8 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://the-internet.herokuapp.com/',
+    // baseUrl: 'https://the-internet.herokuapp.com/',
+    baseUrl: url[process.env.ENV],
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -187,6 +202,14 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     // before: function (capabilities, specs) {
+    //     browser.addCommand('getUrlAndTitle', function(){
+    //         //`this` refers to the `browser` scope
+    //         return{
+    //             url: this.getUrl(),
+    //             title: this.getTitle()
+    //         };
+    //     });
+
     // },
     /**
      * Runs before a WebdriverIO command gets executed.

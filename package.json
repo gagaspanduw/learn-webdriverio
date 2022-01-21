@@ -4,7 +4,8 @@
   "description": "Learn WebDriverIO",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio run wdio.conf.js"
+    "test": "npx wdio run wdio.conf.js",
+    "actions": "npx wdio run wdio.conf.js --suite actions"
   },
   "author": "Gagas pandu w",
   "license": "ISC",

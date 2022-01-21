@@ -1,6 +1,6 @@
 const { assert } = require('chai');
 const internetPage = require('../pageobjects/internet.page.js');
-const LoginPage = require('../pageobjects/login.page');
+const loginData = require('../../data/logindata.js')
 
 describe("Intercting with elements", function () {
     it("Get text for element", async () => {
@@ -33,13 +33,13 @@ describe("Intercting with elements", function () {
     })
     it('should enter username', async () => {
         await browser.url(`${browser.options.baseUrl}/login`)
-        await internetPage.enterUsernameAsync('Julia')
-        assert.equal(await internetPage.username.getValue(), 'Julia')
+        await internetPage.enterUsernameAsync(loginData.userName)
+        assert.equal(await internetPage.username.getValue(), loginData.userName)
     })
     it('should enter password', async () => {
         await browser.url(`${browser.options.baseUrl}/login`)
-        await internetPage.enterPasswordAsync('Password')
-        assert.equal(await internetPage.password.getValue(), 'Password')
+        await internetPage.enterPasswordAsync(loginData.Password)
+        assert.equal(await internetPage.password.getValue(), loginData.Password)
     })
     it('should clear value', async () => {
         await internetPage.username.click()
